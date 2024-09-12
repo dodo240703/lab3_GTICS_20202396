@@ -18,9 +18,8 @@ public class Receta {
     @Column(name = "idreceta", nullable = false)
     private int idReceta;
 
-    @ManyToOne
-    @JoinColumn(name = "idcategoria", nullable = false)
-    private Categoria categoria;
+    @Column (name = "idcategoria", nullable = false)
+    private int idCategoria;
 
     @Column (name = "nombre", length = 200)
     private String nombreReceta;
@@ -33,5 +32,9 @@ public class Receta {
 
     @Column (name = "tiempo_preparacion")
     private Time tiempoPreparacion;
+
+    /*@ManyToOne
+    @JoinColumn(name = "idcategoria", nullable = false)
+    private Categoria categoria;*/
 
 }

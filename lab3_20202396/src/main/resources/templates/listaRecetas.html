@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Lista de recetas</title>
@@ -15,18 +15,26 @@
             <th>#</th>
             <th>Nombre</th>
             <th>Tiempo de preparación</th>
-
+            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="receta, info :${listaRecetas}">
             <td th:text="${info.index + 1}"></td>
-            <td th:text="${receta.mombreReceta}"></td>
+            <td th:text="${receta.nombreReceta}"></td>
             <td th:text="${receta.tiempoPreparacion}"></td>
+            <td><a class="btn btn-info" href="#">Ver</a>
+                <a class="btn btn-success" href="#">Editar</a>
+                <a class="btn btn-danger" href="#">Eliminar</a>
+            </td>
         </tr>
 
         </tbody>
     </table>
+
+    <div class="container-sm">
+        <a class="btn btn-primary" th:href="@{'/recetas/formCrear'}">Crear recetas</a>
+    </div>
 
 </div>
 

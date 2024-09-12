@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Receta</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h2 class="mb-4">Nueva Receta</h2>
+  <form th:action="@{/recetas/crearReceta}" method="post">
+    <div class="mb-3">
+      <label for="idCategoria" class="form-label">Categoría</label>
+      <select class="form-select" id="idCategoria" name="idCategoria">
+        <option th:each="categoria : ${listaCategorias}"
+                th:value="${categoria.idCategoria}"
+                th:text="${categoria.nombreCategoria}">
+
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="nombreReceta" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombreReceta" name="nombreReceta" placeholder="Ingrese el nombre de la receta">
+    </div>
+    <div class="mb-3">
+      <label for="instruccionReceta" class="form-label">Instrucciones</label>
+      <textarea type="text" class="form-control" id="instruccionReceta" name="instruccionReceta" rows="3" placeholder="Ingrese las instrucciones de la receta"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="dificultadReceta" class="form-label">Dificultad</label>
+      <select class="form-select" id="dificultadReceta" name="dificultadReceta">
+        <option selected>Seleccione la dificultad</option>
+        <option value="1">Uno</option>
+        <option value="2">Dos</option>
+        <option value="3">Tres</option>
+        <option value="4">Cuatro</option>
+        <option value="5">Cinco</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="tiempoPreparacion" class="form-label">Tiempo de preparación</label>
+      <input type="time" class="form-control" id="tiempoPreparacion" name="tiempoPreparacion">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </form>
+
+</div>
+</body>
+</html>
