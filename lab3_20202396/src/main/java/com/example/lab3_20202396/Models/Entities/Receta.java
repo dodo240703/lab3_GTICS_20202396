@@ -31,7 +31,7 @@ public class Receta {
     private int dificultadReceta;
 
     @Column (name = "tiempo_preparacion")
-    private Time tiempoPreparacion;
+    private String tiempoPreparacion;
 
     /*@ManyToOne
     @JoinColumn(name = "idcategoria", nullable = false)
